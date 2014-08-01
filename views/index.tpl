@@ -1,82 +1,27 @@
 <!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
 
-<html>
-  	<head>
-    	<title>Beego</title>
-    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	
-		<style type="text/css">
-			body {
-				margin: 0px;
-				font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-				font-size: 14px;
-				line-height: 20px;
-				color: rgb(51, 51, 51);
-				background-color: rgb(255, 255, 255);
-			}
+    <!-- Bootstrap -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
 
-			.hero-unit {
-				padding: 60px;
-				margin-bottom: 30px;
-				border-radius: 6px 6px 6px 6px;
-			}
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <h1>你好，世界！</h1>
 
-			.container {
-				width: 940px;
-				margin-right: auto;
-				margin-left: auto;
-			}
-
-			.row {
-				margin-left: -20px;
-			}
-
-			h1 {
-				margin: 10px 0px;
-				font-family: inherit;
-				font-weight: bold;
-				text-rendering: optimizelegibility;
-			}
-
-			.hero-unit h1 {
-				margin-bottom: 0px;
-				font-size: 60px;
-				line-height: 1;
-				letter-spacing: -1px;
-				color: inherit;
-			}
-
-			.description {
-				padding-top: 5px;
-				padding-left: 5px;
-				font-size: 18px;
-				font-weight: 200;
-				line-height: 30px;
-				color: inherit;
-			}
-
-			p {
-				margin: 0px 0px 10px;
-			}
-		</style>
-	</head>
-  	
-  	<body>
-  		<header class="hero-unit" style="background-color:#A9F16C">
-			<div class="container">
-			<div class="row">
-			  <div class="hero-text">
-			    <h1>Welcome to Beego!</h1>
-			    <p class="description">
-			    	Beego is a simple & powerful Go web framework which is inspired by tornado and sinatra.
-			    <br />
-			    	Official website: <a href="http://{{.Website}}">{{.Website}}</a>
-			    <br />
-			    	Contact me: {{.Email}}
-			    </p>
-			  </div>
-			</div>
-			</div>
-		</header>
-	</body>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="static/js/bootstrap.min.js"></script>
+  </body>
 </html>

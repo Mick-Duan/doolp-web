@@ -1,11 +1,11 @@
 package main
 
 import (
-	_ "doolp-web/routers"
-	"github.com/astaxie/beego"
+    _ "doolp-web/routers"
+    "github.com/astaxie/beego"
 )
 
 func main() {
-	beego.Run()
+    StaticDir["/static"] = "static"
+    beego.Run()
 }
-
