@@ -2,6 +2,11 @@ package controllers
 
 import (
     "github.com/astaxie/beego"
+    "github.com/astaxie/beego/context"
+)
+
+const (
+    Secret = "dsfadffasdfjdsajfsdjfa;sjdfsdjf"
 )
 
 type LoginController struct {
@@ -9,6 +14,13 @@ type LoginController struct {
 }
 
 func (this *LoginController) Get() {
+    isExit := this.Input().Get("exit") == "true"
+    if isExit {
+        this.Ctx.SetCookie("uname", "", -1, "/")
+        this.Ctx.SetCookie("pwd", "", -1, "/")
+        this.Redirect("/", 301)
+        return
+    }
     this.TplNames = "login.html"
 }
 
@@ -22,14 +34,26 @@ func (this *LoginController) Post() {
         if autologin {
             maxAge = 1<<31 - 1
         }
-        this.Ctx.SetCookie("uname", uname, maxAge, "/")
-        this.Ctx.SetCookie("pwd", pwd, maxAge, "/")
-        this.Redirect("/console", 301)
-        this.Data["IsLogin"] = true
-        return
-    } else {
-        this.Redirect("/error", 301)
-        return
-    }
+        this.Ctx.SetSecureCookie(Secret, "uname", uname, maxAge, "/")
+        this.Ctx.SetSecureCookie(Secret, "pwd", pwd, maxAge, "/")
 
+    }
+    this.Redirect("/", 301)
+    return
+}
+
+func checkAccount(ctx *context.Context) bool {
+    ck, ok := ctx.GetSecureCookie(Secret, "uname")
+    if !ok {
+        return false
+    }
+    uname := ck
+
+    ck, ok = ctx.GetSecureCookie(Secret, "pwd")
+    if !ok {
+        return false
+    }
+    pwd := ck
+
+    return "mick" == uname && "mick" == pwd
 }
