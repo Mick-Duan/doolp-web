@@ -4,10 +4,10 @@ import (
     "github.com/astaxie/beego"
 )
 
-type MainController struct {
+type HomeController struct {
     beego.Controller
 }
 
-func (this *MainController) Get() {
+func (this *HomeController) Get() {
     this.TplNames = "index.html"
 }
