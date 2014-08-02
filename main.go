@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-    StaticDir["/static"] = "static"
+    beego.StaticDir["/static"] = "static"
     beego.Run()
 }
