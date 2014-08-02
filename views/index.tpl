@@ -10,7 +10,7 @@
     <link href="static/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-- WARNING: Respond.js doesnt work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
@@ -18,6 +18,38 @@
   </head>
   <body>
     <h1>你好，Mick</h1>
+    
+    <div>
+      {{if .TrueCond}}
+      true condition.
+      {{end}}
+    </div>
+
+    <div>
+      {{if .FalseCond}}
+      {{else}}
+      fase condition.
+      {{end}}
+    </div>
+
+    <div>
+      {{.User.Name}}; {{.User.Age}}
+    </div>
+
+    <div>
+      {{range .Number}}
+        {{.}}
+      {{end}}
+    </div>
+
+    <div>
+      {{$a := .TplVar}}
+      {{$a}}
+    </div>
+
+      {{str2html .Html}}
+      {{.Pipe | htmlquote}}
+      {{template "test"}}
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
@@ -25,3 +57,9 @@
     <script src="static/js/bootstrap.min.js"></script>
   </body>
 </html>
+
+{{define "test"}}
+<div>
+  this is test template
+</div>
+{{end}}
