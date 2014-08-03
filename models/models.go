@@ -3,6 +3,7 @@ package models
 import (
     "github.com/astaxie/beego/orm"
     _ "github.com/go-sql-driver/mysql"
+    "strconv"
     "time"
 )
 
@@ -23,18 +24,18 @@ type Category struct {
 }
 
 type Servers struct {
-    Id         int64
-    Uid        int64
-    Name       string
-    Content    string `orm:"size(5000)"`
-    Attachment string
+    Id          int64
+    Uid         int64
+    Name        string
+    Description string `orm:"size(300)"`
+    Attachment  string
     //Created         time.Time `orm:"index"`
     //Updated         time.Time `orm:"index"`
     Views  int64 `orm:"index"`
     Author string
     //DelteTime       time.Time `orm:"index"`
-    ReplyCount      int64
-    ReplyLastUserId int64
+    Cpu    int64
+    Memory int64
 }
 
 func RegisterDB() {
@@ -70,6 +71,19 @@ func AddServer(sname string) error {
     }
 
     return nil
+}
+
+func DelServer(id string) error {
+    cid, err := strconv.ParseInt(id, 10, 64)
+    if err != nil {
+        return err
+    }
+
+    o := orm.NewOrm()
+    server := &Servers{Id: cid}
+    _, err = o.Delete(server)
+    return err
+
 }
 
 func GetAllServerNmaes() ([]*Servers, error) {

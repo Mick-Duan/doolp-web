@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65bc33e9-6b65-4091-915c-76cb6be034f4" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/index.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/T.navbar.tpl" afterPath="$PROJECT_DIR$/views/T.navbar.tpl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/console.go" afterPath="$PROJECT_DIR$/controllers/console.go" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/console.html" afterPath="$PROJECT_DIR$/views/console.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/home.go" afterPath="$PROJECT_DIR$/controllers/home.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/login.go" afterPath="$PROJECT_DIR$/controllers/login.go" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/login.html" afterPath="$PROJECT_DIR$/views/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.go" afterPath="$PROJECT_DIR$/main.go" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="doolp-web.iws" />
@@ -46,8 +40,8 @@
       <file leaf-file-name="console.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/console.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.46551725" vertical-offset="0" max-vertical-offset="870">
-              <caret line="18" column="59" selection-start-line="18" selection-start-column="59" selection-end-line="18" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.43103448" vertical-offset="230" max-vertical-offset="810">
+              <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -331,8 +325,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/console.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46551725" vertical-offset="0" max-vertical-offset="870">
-          <caret line="18" column="59" selection-start-line="18" selection-start-column="59" selection-end-line="18" selection-end-column="59" />
+        <state vertical-scroll-proportion="0.43103448" vertical-offset="230" max-vertical-offset="810">
+          <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
           <folding />
         </state>
       </provider>

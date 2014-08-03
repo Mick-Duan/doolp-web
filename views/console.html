@@ -17,32 +17,40 @@
 
             <script type="text/javascript">
                 function checkInput() {
-                    var servername = document.getElementById('sname')
+                    var servername = document.getElementById('servername')
                     if (servername.value.length == 0) {
                         alert("Please input Server Name!");
                         return false;
                     }
-                    return true
+                    return true;
                 }
             </script>
-            <table class="table table-triped">
+
+            <table class="table table-striped">
                 <thead>
                     <th>#</th>
                     <th>Server Name</th>
                     <th>Description</th>
+                    <th>CPU</th>
+                    <th>Memory</th>
                     <th>Options</th>
                 </thead>
-                <tbody>
-                    {{range .ServerNmae}}
+                
+                    {{range .Servers}}
+                    <tbody>
                         <th>{{.Id}}</th>
-                        <th>{{.SerName}}</th>
+                        <th>{{.Name}}</th>
                         <th>{{.Description}}</th>
+                        <th>{{.Cpu}}</th>
+                        <th>{{.Memory}}</th>
                         <th>
                             <a href="/console?op=del&id={{.Id}}">Delete</a>
                         </th>
+                    </tbody>
                     {{end}}
-                </tbody>
+                
             </table>
+
         </div>
     </body>
 </html>
