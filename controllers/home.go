@@ -9,6 +9,6 @@ type HomeController struct {
 }
 
 func (this *HomeController) Get() {
-    this.TplNames = "index.html"
+    this.TplNames = "home.html"
     this.Data["IsLogin"] = checkAccount(this.Ctx)
 }

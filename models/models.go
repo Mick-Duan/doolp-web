@@ -22,23 +22,23 @@ type Category struct {
     TopicLastUserID int64
 }
 
-type Topic struct {
-    Id              int64
-    Uid             int64
-    Title           string
-    Content         string `orm:"size(5000)"`
-    Attachment      string
-    Created         time.Time `orm:"index"`
-    Updated         time.Time `orm:"index"`
-    Views           int64     `orm:"index"`
-    Author          string
-    ReplyTime       time.Time `orm:"index"`
+type Servers struct {
+    Id         int64
+    Uid        int64
+    Name       string
+    Content    string `orm:"size(5000)"`
+    Attachment string
+    //Created         time.Time `orm:"index"`
+    //Updated         time.Time `orm:"index"`
+    Views  int64 `orm:"index"`
+    Author string
+    //DelteTime       time.Time `orm:"index"`
     ReplyCount      int64
     ReplyLastUserId int64
 }
 
 func RegisterDB() {
-    orm.RegisterModel(new(Category), new(Topic))
+    orm.RegisterModel(new(Category), new(Servers))
 }
 
 func init() {
@@ -52,4 +52,30 @@ func init() {
     maxIdle := 30
     maxConn := 30
     orm.RegisterDataBase(_DBAlias, _DBDriver, _DBConn, maxIdle, maxConn)
+}
+
+func AddServer(sname string) error {
+    o := orm.NewOrm()
+    server := &Servers{Name: sname}
+
+    qs := o.QueryTable("servers")
+    err := qs.Filter("name", sname).One(server)
+    if err == nil {
+        return err
+    }
+
+    _, err = o.Insert(server)
+    if err != nil {
+        return err
+    }
+
+    return nil
+}
+
+func GetAllServerNmaes() ([]*Servers, error) {
+    o := orm.NewOrm()
+    server := make([]*Servers, 0)
+    qs := o.QueryTable("servers")
+    _, err := qs.All(&server)
+    return server, err
 }

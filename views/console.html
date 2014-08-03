@@ -3,7 +3,46 @@
     </head>
 
     <body>
-        {{template "navbar"}}
-        <h1>You are in Doolp Console!</h1>
+        {{template "navbar_console"}}
+        <div class="container">
+            <h2>Doolp Console Mangement</h2>
+            <form method="GET" action="/console">
+                <div class="form-group">
+                    <label>Server Name</label>
+                    <input id="servername" class="form-control" placeholder="Enter Serve Name" name="sname">
+                </div>
+                <input type="hidden" name="op" value="add">
+                <button type="submit" class="btn btn-primary" onclick="return checkInput();">Add</button>
+            </form>
+
+            <script type="text/javascript">
+                function checkInput() {
+                    var servername = document.getElementById('sname')
+                    if (servername.value.length == 0) {
+                        alert("Please input Server Name!");
+                        return false;
+                    }
+                    return true
+                }
+            </script>
+            <table class="table table-triped">
+                <thead>
+                    <th>#</th>
+                    <th>Server Name</th>
+                    <th>Description</th>
+                    <th>Options</th>
+                </thead>
+                <tbody>
+                    {{range .ServerNmae}}
+                        <th>{{.Id}}</th>
+                        <th>{{.SerName}}</th>
+                        <th>{{.Description}}</th>
+                        <th>
+                            <a href="/console?op=del&id={{.Id}}">Delete</a>
+                        </th>
+                    {{end}}
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>

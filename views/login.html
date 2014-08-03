@@ -11,16 +11,39 @@
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="pwd">
+                    <input id="pwd" type="password" class="form-control" placeholder="Password" name="pwd">
                 </div>
                 <div class="checkbox">
                     <label>
                         <input type="checkbox" name="autologin"> Auto log in
                     </label>
                 </div>
-                <button type="submit" class="btn btn-default">Login</button>
+                <button type="submit" class="btn btn-primary" onclick="return checkInput();">Login</button>
+                <button class="btn btn-default" onclick="return backToHome();">Back</button>
             </form>
         </div>
-        {{template "footer"}}
+
+        <script type="text/javascript">
+            function checkInput() {
+                var uname = document.getElementById('uname')
+                if (uname.value.length == 0) {
+                    alert("Please input username!");
+                    return false;
+                }
+                var pwd = document.getElementById("pwd")
+                if (pwd.value.length == 0) {
+                    alert("Please input password!");
+                    return false;
+                }
+                return true
+            }
+
+            function backToHome() {
+                window.location.href = "/";
+                return false
+            }
+        </script>
+
+        <!-->{{template "footer"}}<-->
     </body>
 </html>
