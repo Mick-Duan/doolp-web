@@ -10,9 +10,10 @@ type ConsoleController struct {
 }
 
 func (this *ConsoleController) Get() {
-    //if !checkAccount(this.Ctx) {
-    //    this.Redirect("/login", 301)
-    //}
+    if !checkAccount(this.Ctx) {
+        this.Redirect("/login", 301)
+    }
+    this.Data["IsLogin"] = checkAccount(this.Ctx)
     this.Data["IsConsole"] = true
 
     op := this.Input().Get("op")
