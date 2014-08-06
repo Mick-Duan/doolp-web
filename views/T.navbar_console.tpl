@@ -7,7 +7,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="/">
-                            <img src="/static/img/doolp-logo.png" alt="Doolp Logo, Changing the world!">
+                            <img src="/static/img/doolp_logo_01.png" alt="Doolp Logo, Changing the world!">
                         </a>
                      </div>
                      <div class="navbar-collapse collapse">

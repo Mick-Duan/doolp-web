@@ -1,0 +1,56 @@
+{{template "header"}}
+        <title>Doolp Console</title>
+    </head>
+
+    <body>
+        {{template "navbar_console"}}
+        <div class="container">
+            <h2>Doolp Console Mangement</h2>
+            <form method="GET" action="/console">
+                <div class="form-group">
+                    <label>Server Name</label>
+                    <input id="servername" class="form-control" placeholder="Enter Serve Name" name="sname">
+                </div>
+                <input type="hidden" name="op" value="add">
+                <button type="submit" class="btn btn-primary" onclick="return checkInput();">Add</button>
+            </form>
+
+            <script type="text/javascript">
+                function checkInput() {
+                    var servername = document.getElementById('servername')
+                    if (servername.value.length == 0) {
+                        alert("Please input Server Name!");
+                        return false;
+                    }
+                    return true;
+                }
+            </script>
+
+            <table class="table table-striped">
+                <thead>
+                    <th>#</th>
+                    <th>Server Name</th>
+                    <th>Description</th>
+                    <th>CPU</th>
+                    <th>Memory</th>
+                    <th>Options</th>
+                </thead>
+                
+                    {{range .Servers}}
+                    <tbody>
+                        <th>{{.Id}}</th>
+                        <th>{{.Name}}</th>
+                        <th>{{.Description}}</th>
+                        <th>{{.Cpu}}</th>
+                        <th>{{.Memory}}</th>
+                        <th>
+                            <a href="/console?op=del&id={{.Id}}">Delete</a>
+                        </th>
+                    </tbody>
+                    {{end}}
+                
+            </table>
+
+        </div>
+    </body>
+</html>
