@@ -1,0 +1,49 @@
+{{template "header"}}
+        <title>Login Doolp Cloud</title>
+    </head>
+    
+    <body>
+        <div class="container" style="width: 500px">
+            <form method="POST" action="login">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Account</label>
+                    <input class="form-control" placeholder="Enter account" name="uname">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input id="pwd" type="password" class="form-control" placeholder="Password" name="pwd">
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="autologin"> Auto log in
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary" onclick="return checkInput();">Login</button>
+                <button class="btn btn-default" onclick="return backToHome();">Back</button>
+            </form>
+        </div>
+
+        <script type="text/javascript">
+            function checkInput() {
+                var uname = document.getElementById('uname')
+                if (uname.value.length == 0) {
+                    alert("Please input username!");
+                    return false;
+                }
+                var pwd = document.getElementById("pwd")
+                if (pwd.value.length == 0) {
+                    alert("Please input password!");
+                    return false;
+                }
+                return true
+            }
+
+            function backToHome() {
+                window.location.href = "/";
+                return false
+            }
+        </script>
+
+        <!-->{{template "footer"}}<-->
+    </body>
+</html>
